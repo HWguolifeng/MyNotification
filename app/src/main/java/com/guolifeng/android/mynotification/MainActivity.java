@@ -1,9 +1,15 @@
 package com.guolifeng.android.mynotification;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
 
     @Override
@@ -11,5 +17,39 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button sendNotice = (Button) findViewById(R.id.send_notice);
+        sendNotice.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.send_notice:
+                baseNotification();
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * notification 的基本用法
+     */
+    private void baseNotification()
+    {
+        //获取管理器
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        //创建通知
+        Notification notification = new NotificationCompat.Builder(this)
+                .setContentTitle("guoLiFeng")//标题
+                .setContentText("this is a text")//内容
+                .setWhen(System.currentTimeMillis())//设置时间
+                .setSmallIcon(R.mipmap.ic_launcher)//设置展示的小图标
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))//设置展示的大图标
+                .build();//完成
+        manager.notify(1, notification);//显示通知
     }
 }
