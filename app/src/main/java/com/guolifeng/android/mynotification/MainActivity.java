@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setSmallIcon(R.mipmap.ic_launcher)//设置展示的小图标
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))//设置展示的大图标
                 .setContentIntent(pi)//传入意图
-                .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Dream.ogg")))
+                .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Dream.ogg")))//播放音频
+                .setVibrate(new long[]{0, 1000, 1000, 1000, 1000, 1000})//设置震动 下标为偶数表示静止的时间反之震动的时间
 //                .setAutoCancel(true)//设置自动结束的notification
                 .build();//完成
         manager.notify(1, notification);//显示通知
