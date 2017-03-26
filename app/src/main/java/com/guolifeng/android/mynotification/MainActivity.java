@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //创建通知
         Notification notification = new NotificationCompat.Builder(this)
                 .setContentTitle("guoLiFeng")//标题
-                .setContentText("this is a text")//内容
+//                .setContentText("this is a textasfasdfsdfsdfgsfvgsdwsdfsdfgsdfgvdfgbdfgbdfgbdfgbsdfgsdfgvsdf")//内容
                 .setWhen(System.currentTimeMillis())//设置时间
                 .setSmallIcon(R.mipmap.ic_launcher)//设置展示的小图标
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))//设置展示的大图标
@@ -58,8 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Dream.ogg")))//播放音频
 //                .setVibrate(new long[]{0, 1000, 1000, 1000, 1000, 1000})//设置震动 下标为偶数表示静止的时间反之震动的时间
 //                .setLights(Color.GREEN,1000,1000)
-                .setDefaults(NotificationCompat.DEFAULT_ALL)//系统自己设置
+//                .setDefaults(NotificationCompat.DEFAULT_ALL)//系统自己设置
 //                .setAutoCancel(true)//设置自动结束的notification
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("this is a textasfasdfsdfsdfgsfvgsdwsdfsdfgsdfgvdfgbdfgbdfgbdfgbsdfgsdfgvsdf"))
                 .build();//完成
         manager.notify(1, notification);//显示通知
     }
