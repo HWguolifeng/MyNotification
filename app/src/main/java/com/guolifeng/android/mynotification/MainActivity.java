@@ -5,15 +5,11 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import java.io.File;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -59,9 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setSmallIcon(R.mipmap.ic_launcher)//设置展示的小图标
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))//设置展示的大图标
                 .setContentIntent(pi)//传入意图
-                .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Dream.ogg")))//播放音频
-                .setVibrate(new long[]{0, 1000, 1000, 1000, 1000, 1000})//设置震动 下标为偶数表示静止的时间反之震动的时间
-                .setLights(Color.GREEN,1000,1000)
+//                .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Dream.ogg")))//播放音频
+//                .setVibrate(new long[]{0, 1000, 1000, 1000, 1000, 1000})//设置震动 下标为偶数表示静止的时间反之震动的时间
+//                .setLights(Color.GREEN,1000,1000)
+                .setDefaults(NotificationCompat.DEFAULT_ALL)//系统自己设置
 //                .setAutoCancel(true)//设置自动结束的notification
                 .build();//完成
         manager.notify(1, notification);//显示通知
