@@ -2,6 +2,8 @@ package com.guolifeng.android.mynotification;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void baseNotification()
     {
+        //notification 的点击动作的实现
+        Intent intent = new Intent(this, NotificationActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
         //获取管理器
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         //创建通知
@@ -49,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setWhen(System.currentTimeMillis())//设置时间
                 .setSmallIcon(R.mipmap.ic_launcher)//设置展示的小图标
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))//设置展示的大图标
+                .setContentIntent(pi)//传入意图
+//                .setAutoCancel(true)//设置自动结束的notification
                 .build();//完成
         manager.notify(1, notification);//显示通知
     }

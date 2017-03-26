@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyNotification</string>
     <string name="send_notice">Send notice</string>
+    <string name="this_is_text_layout">this is text layout</string>
 </resources>
